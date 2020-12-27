@@ -1,9 +1,8 @@
 const button = document.querySelector(".btn");
 const input = document.querySelector(".input");
 const output = document.querySelector(".output");
-const fb= document.querySelector(".fa");
+const twitter= document.querySelector(".fa");
 const button2 = document.querySelector(".btn2");
-const inputDate = document.querySelector(".inputDate");
 const outputDate = document.querySelector(".outputDate");
 const userName = document.querySelector("#name");
 const userMessage = document.querySelector("#welcome");
@@ -16,70 +15,98 @@ userName.addEventListener("input",function(e){
     userMessage.innerHTML= message;
 })
 
-
 //PROGRAM 1
 
-
+var answerLeap;
 button.addEventListener("click",function(){
 
-    
-
-  var answerLeap;
-    if(input.value %4 ===0)
+   // console.log(userName.value);
+   if(userName.value==="")
+   {
+     output.innerHTML = "Please Enter your Name";
+     return;
+   }
+   
+   var userDate = input.value;
+   userDate = userDate.split("-");
+   
+   if(userDate.length!==3)
+   {
+     output.innerHTML = "Please Enter a Valid Date";
+      return;
+   }
+  var userDateYear = parseInt(userDate[0]);
+  const ifLeap ="Yay! You were born in a leap year :D"
+  const ifNotLeap ="Nevermind! You were not born in a leap year :3"
+ 
+    if(userDateYear %4 ===0)
     {
-        if(input.value %100 ===0)
+        if(userDateYear %100 ===0)
            {
-            if(input.value %400 ===0)
-                 answerLeap = "Leap year";
+            if(userDateYear %400 ===0)
+                 answerLeap = ifLeap;
             else
-             answerLeap = "Not Leap year";
+             answerLeap = ifNotLeap;
            }
         else
-             answerLeap = "Leap year";
+             answerLeap = ifLeap;
     }
     else
-         answerLeap = "Not Leap year";
-    output.innerHTML = answerLeap;
+         answerLeap = ifNotLeap;
 
+
+  output.innerHTML = answerLeap;
 })
 
 // PROGRAM 2
 
-
+var answerPrime
 button2.addEventListener("click",function(){
-
-    console.log(typeof(inputDate.value));
-    console.log(typeof(parseInt(inputDate.value)));
-        
-   var answerPrime;
-  if(inputDate.value>31 ||inputDate.value<1)
-  {
-      answerPrime = "Enter Valid Date";
-      outputDate.innerHTML=answerPrime;
+  if(userName.value==="")
+   {
+     outputDate.innerHTML = "Please Enter your Name";
+     return;
+   }
+ 
+  var userDate = input.value;
+  userDate = userDate.split("-");
+  var userDateDay = parseInt(userDate[2]);
+  
+  if(userDate.length!==3)
+   {
+     outputDate.innerHTML = "Please Enter a Valid Date";
       return;
-  }
-  if(inputDate.value===1)
+   }   
+
+  var f=0; 
+  if(userDateDay===1)
   {
-    answerPrime= "neither prime nor composite";
+    answerPrime= "Your BirthDATE is neither Prime nor Composite";
     outputDate.innerHTML=answerPrime;
       return;
   }
-
-  var f=0;
-  for(var i=2;i<inputDate.value;i++)
+  for(var i=2;i<userDateDay;i++)
    {
-      if(inputDate.value%i === 0)
+      if(userDateDay%i === 0)
        {
            f=1;
            break;
        }
-    }
+   }
 
-    if(f===1)
-      answerPrime = "not prime";
-    else
-      answerPrime = "prime";
+  if(f===1)
+    answerPrime = "Your BirthDATE is not a Prime number";
+  else
+    answerPrime = "Your BirthDATE is a Prime number";
 
-    outputDate.innerHTML=answerPrime;
+  outputDate.innerHTML=answerPrime;
 })
 
+//SHARING AND RESET
+
+twitter.addEventListener("click",function(){
+  console.log("hi");
+  let outcome = outputDate.textContent;
+  console.log("outcome");
+  // window.open(`https://twitter.com/intent/tweet?text=${outcome}` ); return false;
+})
