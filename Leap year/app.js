@@ -25,6 +25,7 @@ button.addEventListener("click",function(){
    }
    
    var userDate = input.value;
+   console.log(userDate);
    userDate = userDate.split("-");   
    if(userDate.length!==3)
    {

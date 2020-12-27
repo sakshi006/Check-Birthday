@@ -1,34 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+:root{
+    --primary-color : #831843;
+    --other-color:#F9A8D4;
+}
+
 body{
     padding: 0;
     margin: 0;
-    background-image: url("images/party.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-
+   font-family: 'Fredoka One', cursive;
+   background-color: var(--other-color);
+   color: var(--primary-color);
+   text-align: center;
 }
 
 header{
     max-width: 80%;
-   margin: auto;
+    margin: auto;
 }
 
-
-div{
+.hero-img{
+    max-width: 300px;
+    display: block;
+    margin: auto;
     padding: 1rem;
+}
+
+.hero-txt{
+    text-align: center;
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+
+input{
+    font-family: 'Fredoka One', cursive;
+    padding: 0.8rem;
+    margin: 0.8rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: var(--other-color);
+    box-shadow: 5px 7px 5px var(--primary-color);
+ font-size: larger;
+ text-align: center;
+}
+
+.birthday{
+    max-width: 80%;
+    margin: auto;
+    text-align: center;
+}
+.input{
+    max-width: 80%;
+    margin: auto;
+    text-align: center;
     margin: 1rem;
 }
 
-.twitter {
-    padding: 10px;
-    font-size: 30px;
+.i{
+    padding: 1rem;
+    margin: 1rem;
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+}
+
+
+/* YEAR */
+
+.year,.day{
+    display: flex;
+    padding: 1rem;
+    margin: 1rem;
+    justify-content: center;
+    align-items:flex-end;
+}
+
+.year-img{
+    left:0;
+    max-width: 20rem;
+    /* margin-right: 1rem; */
+    margin-left: 5rem;
+}
+
+.btn,.btn2{
+    border: 0.1rem solid var(--primary-color);
+    width: 30%;
+    /* height: 15vh; */
+    font-family: inherit;
+    color: var(--primary-color);
+    font-weight: bolder;
+    font-size: x-large;
+    box-shadow: 5px 7px 5px var(--primary-color);
+}
+
+.btn{
+    margin-right: 2rem;
+    cursor: pointer;
+}
+
+.btn2{
+    margin-left: 5rem;
+    cursor: pointer;
+}
+
+.day-img{
+    right:0;
+    max-width: 18rem;
+    /* margin-left: 1rem; */
+   }
+
+.output,.outputDate,#welcome{
+    max-width: 80%;
+    margin: auto;
+    font-size: x-large;
+    font-weight: bolder;
+    padding: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.social{
+    padding: 0.4rem;
+    margin: 3rem 0.4rem;
+    text-align: center;
+}
+small {
+    box-shadow: 5px 7px 5px var(--primary-color);
+    padding: 0.5rem;
+    font-size: x-large;
     width: 20px;
     text-align: center;
     text-decoration: none;
-    margin: 5px 2px;
-    border-radius: 50%;
+    border-radius: 1rem;
+    border: 0rem solid var(--primary-color);
+    cursor: pointer;
   }
 
-.twitter:hover {
+  .twitter{
+      margin-right: 1rem;
+      margin-left: 1rem;
+  }
+
+small:hover {
     opacity: 0.7;
 }
