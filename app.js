@@ -10,7 +10,7 @@ const reset = document.querySelector(".new")
 //GREETING
 
 userName.addEventListener("input",function(e){
-    var message = `Welcome ${e.target.value} !
+    var message = `Welcome ${e.target.value.toUpperCase()} !
     Let's see some facts about your birthday!`;
     userMessage.innerHTML= message;
 })
