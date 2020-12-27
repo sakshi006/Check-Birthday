@@ -1,12 +1,12 @@
 const button = document.querySelector(".btn");
 const input = document.querySelector(".input");
 const output = document.querySelector(".output");
-const twitter= document.querySelector(".fa");
+const twitter= document.querySelector(".twitter");
 const button2 = document.querySelector(".btn2");
 const outputDate = document.querySelector(".outputDate");
 const userName = document.querySelector("#name");
 const userMessage = document.querySelector("#welcome");
-
+const reset = document.querySelector(".new")
 //GREETING
 
 userName.addEventListener("input",function(e){
@@ -17,10 +17,7 @@ userName.addEventListener("input",function(e){
 
 //PROGRAM 1
 
-var answerLeap;
 button.addEventListener("click",function(){
-
-   // console.log(userName.value);
    if(userName.value==="")
    {
      output.innerHTML = "Please Enter your Name";
@@ -28,14 +25,14 @@ button.addEventListener("click",function(){
    }
    
    var userDate = input.value;
-   userDate = userDate.split("-");
-   
+   userDate = userDate.split("-");   
    if(userDate.length!==3)
    {
      output.innerHTML = "Please Enter a Valid Date";
       return;
    }
   var userDateYear = parseInt(userDate[0]);
+  var answerLeap;
   const ifLeap ="Yay! You were born in a leap year :D"
   const ifNotLeap ="Nevermind! You were not born in a leap year :3"
  
@@ -53,14 +50,10 @@ button.addEventListener("click",function(){
     }
     else
          answerLeap = ifNotLeap;
-
-
   output.innerHTML = answerLeap;
 })
 
 // PROGRAM 2
-
-var answerPrime
 button2.addEventListener("click",function(){
   if(userName.value==="")
    {
@@ -71,14 +64,12 @@ button2.addEventListener("click",function(){
   var userDate = input.value;
   userDate = userDate.split("-");
   var userDateDay = parseInt(userDate[2]);
-  
   if(userDate.length!==3)
    {
      outputDate.innerHTML = "Please Enter a Valid Date";
       return;
    }   
-
-  var f=0; 
+  var answerPrime,f=0; 
   if(userDateDay===1)
   {
     answerPrime= "Your BirthDATE is neither Prime nor Composite";
@@ -93,20 +84,26 @@ button2.addEventListener("click",function(){
            break;
        }
    }
-
   if(f===1)
     answerPrime = "Your BirthDATE is not a Prime number";
   else
     answerPrime = "Your BirthDATE is a Prime number";
-
   outputDate.innerHTML=answerPrime;
 })
 
 //SHARING AND RESET
 
 twitter.addEventListener("click",function(){
-  console.log("hi");
-  let outcome = outputDate.textContent;
-  console.log("outcome");
-  // window.open(`https://twitter.com/intent/tweet?text=${outcome}` ); return false;
+  var outcome = output.textContent + outputDate.textContent;
+  if(outcome==="")
+   output.innerHTML="You gotta play the Game first! :P"
+  else{
+    window.open(`https://twitter.com/intent/tweet?text=${outcome}` ); return false;
+  }  
+})
+
+reset.addEventListener("click",function(){
+  input.value="";
+  outputDate.innerHTML="";
+  output.innerHTML="";
 })
