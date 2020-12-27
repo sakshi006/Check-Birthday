@@ -15,6 +15,12 @@ userName.addEventListener("input",function(e){
     userMessage.innerHTML= message;
 })
 
+
+var current = new Date();
+   var currentDate= current.getDate();
+   var currentMonth = current.getMonth()+1;
+   var currentYear = current.getFullYear();
+
 //PROGRAM 1
 
 button.addEventListener("click",function(){
@@ -25,10 +31,7 @@ button.addEventListener("click",function(){
    }
    
    var userDate = input.value;
-   var current = new Date();
-   var currentDate= current.getDate();
-   var currentMonth = current.getMonth()+1;
-   var currentYear = current.getFullYear();
+   
    
    userDate = userDate.split("-"); 
       
@@ -77,9 +80,21 @@ button2.addEventListener("click",function(){
      outputDate.innerHTML = "Please Enter your Name";
      return;
    }
+
+   
  
   var userDate = input.value;
   userDate = userDate.split("-");
+
+  if(userDate[0]<=currentYear && userDate[1]<=currentMonth && userDate[2]<=currentDate)
+   {
+     
+   }
+   else
+   {
+     outputDate.innerHTML = "Enter Valid Date";
+     return;
+   }
   var userDateDay = parseInt(userDate[2]);
   if(userDate.length!==3)
    {
