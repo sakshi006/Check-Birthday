@@ -1,44 +1,71 @@
-var button = document.querySelector(".btn");
-var input = document.querySelector(".input");
-var output = document.querySelector(".output");
+const button = document.querySelector(".btn");
+const input = document.querySelector(".input");
+const output = document.querySelector(".output");
+const fb= document.querySelector(".fa");
+const button2 = document.querySelector(".btn2");
+const inputDate = document.querySelector(".inputDate");
+const outputDate = document.querySelector(".outputDate");
+const userName = document.querySelector("#name");
+const userMessage = document.querySelector("#welcome");
 
-button.addEventListener("click",function(){
+//GREETING
 
-    if(input.value %4 ===0)
-    {
-        output.innerHTML = "Leap year";
-    }
-    else
-    {
-        output.innerHTML = "Not Leap year";
-    }
-
+userName.addEventListener("input",function(e){
+    var message = `Welcome ${e.target.value} !
+    Let's see some facts about your birthday!`;
+    userMessage.innerHTML= message;
 })
 
 
+//PROGRAM 1
+
+
+button.addEventListener("click",function(){
+
+    
+
+  var answerLeap;
+    if(input.value %4 ===0)
+    {
+        if(input.value %100 ===0)
+           {
+            if(input.value %400 ===0)
+                 answerLeap = "Leap year";
+            else
+             answerLeap = "Not Leap year";
+           }
+        else
+             answerLeap = "Leap year";
+    }
+    else
+         answerLeap = "Not Leap year";
+    output.innerHTML = answerLeap;
+
+})
 
 // PROGRAM 2
-
-var button2 = document.querySelector(".btn2");
-var inputDate = document.querySelector(".inputDate");
-var outputDate = document.querySelector(".outputDate");
 
 
 button2.addEventListener("click",function(){
 
+    console.log(typeof(inputDate.value));
+    console.log(typeof(parseInt(inputDate.value)));
+        
+   var answerPrime;
   if(inputDate.value>31 ||inputDate.value<1)
   {
-      outputDate.innerHTML = "Enter Valid Date";;
+      answerPrime = "Enter Valid Date";
+      outputDate.innerHTML=answerPrime;
+      return;
+  }
+  if(inputDate.value===1)
+  {
+    answerPrime= "neither prime nor composite";
+    outputDate.innerHTML=answerPrime;
       return;
   }
 
   var f=0;
-  if(inputDate.value===1)
-  {
-    outputDate.innerHTML= "neither prime nor composite";
-      return;
-  }
-
   for(var i=2;i<inputDate.value;i++)
    {
       if(inputDate.value%i === 0)
@@ -49,7 +76,10 @@ button2.addEventListener("click",function(){
     }
 
     if(f===1)
-    outputDate.innerHTML = "not prime";
+      answerPrime = "not prime";
     else
-    outputDate.innerHTML = "prime";
+      answerPrime = "prime";
+
+    outputDate.innerHTML=answerPrime;
 })
+
