@@ -25,13 +25,29 @@ button.addEventListener("click",function(){
    }
    
    var userDate = input.value;
-   console.log(userDate);
-   userDate = userDate.split("-");   
+   var current = new Date();
+   var currentDate= current.getDate();
+   var currentMonth = current.getMonth()+1;
+   var currentYear = current.getFullYear();
+   
+   userDate = userDate.split("-"); 
+      
    if(userDate.length!==3)
    {
      output.innerHTML = "Please Enter a Valid Date";
       return;
    }
+
+   if(userDate[0]<=currentYear && userDate[1]<=currentMonth && userDate[2]<=currentDate)
+   {
+     
+   }
+   else
+   {
+     output.innerHTML = "Enter Valid Date";
+     return;
+   }
+
   var userDateYear = parseInt(userDate[0]);
   var answerLeap;
   const ifLeap ="Yay! You were born in a leap year :D"
